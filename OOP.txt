@@ -1,0 +1,4 @@
+1. Coupling and Cohesion. Examples well illustrated. 
+
+
+1. https://ducmanhphan.github.io/2019-03-23-Coupling-and-Cohension-in-OOP/
