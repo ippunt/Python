@@ -1,2 +1,3 @@
 https://www.dr-chuck.com/; free and paid. Python, PHP/SQL, django.
 https://ducmanhphan.github.io/2019-03-23-Coupling-and-Cohension-in-OOP/
+http://agilemanifesto.org/
