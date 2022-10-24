@@ -1,0 +1,28 @@
+1. If you do not need relational. Something small and easy local. sqlite3
+
+
+
+
+1. Small example script to get you started
+import sqlite3
+
+class UserDb():
+  def __init__(self, filename=':memory:'):
+    self.db = swlite3.connect(filename)
+    self.db.cursor().execute('CREATE TABLE IF NOT EXISTS users (name TEXT PRIMARY KEY, role TEST)')
+  
+  def add_normal_user(self, name):
+  c = self.db.cursor()
+  c.execute(f"INSET INTO users (name, role) VALUES ('{name}', 'normal')")
+  self.db.commit()
+  
+  def list_normal_users(self):
+  c = self.db.cursor()
+  c.execute(f"SELECT name FROM users WHERE role='normal'")
+  return [x[0] for x in c.fetchall()]
+  
+  def list_admins(self):
+  c = self.db.cursor()
+  c.execute(f"SELECT name FROM users WHERE role='admin'")
+  return [x[0] for x in c.fetchall()]
+  
