@@ -1,5 +1,6 @@
 1. Timeit  https://docs.python.org/3/library/timeit.html 
 2. Memory
+3. Multithreading
 
 
 1. 
@@ -15,3 +16,22 @@ timeit.timeit('a=1')
 0.02
 
 2. Memory Profiler
+
+3. Multithreading 
+
+Note: Quite often if you just run two you will see one then the other. 
+So, I created 4 to showcase a little better that it can run the variables/ function concurrently. 
+import threading 
+class Messen er threadin . Thread 
+def run(self): 
+  for in range(12): 
+    print(threading.current_thread().getName()) 
+x = Messenger(name='Send out messages.')
+y = Messenger(name='Receive messages.')
+x = Messenger(name='z')
+x = Messenger(name='a')
+class and looks for a function called run. 
+x. start()# Goes to  class and looks for a function called run.
+y. start() 
+z.start()
+a.start()
