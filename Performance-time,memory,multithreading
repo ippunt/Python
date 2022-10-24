@@ -1,0 +1,17 @@
+1. Timeit  https://docs.python.org/3/library/timeit.html 
+2. Memory
+
+
+1. 
+
+timeit.timeit( 'list = [x for x in range (1,100]')
+2.4076293000000533 
+timeit.timeit( 'list = [x for x in range (1,100]', number 1)
+9.69999996414117e-e6 
+timeit.timeit( 'list = [x for x in range (1,100]', number=100)
+0.003
+
+timeit.timeit('a=1')
+0.02
+
+2. Memory Profiler
