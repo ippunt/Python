@@ -1,0 +1,4 @@
+1. Basics. Represent an object. Visually display object. Object is instance of class.
+2. Self Contained Classes. Low Couplding. Class should be obvious and do one thing
+3. Polyinstantiation. Good pass good data.
+4. Polymorphism. One input multiple outputs. 
