@@ -65,4 +65,30 @@ class NetworkService :
 class NetworkServiceDeployer:
   def deploy_service (self, service) :  
     if service.type == 'user':
-      frastructure.deploy(service.config, '10.10.10.10/24')
+      frastructure.deploy(service.config, '10.100.50.10/24')
+
+2. Good Code
+
+class NetworkService : 
+  def __init__(self, name, config):
+      self.type = type
+      self.config = config 
+      
+ class NetworkServiceUser(NetworkService:
+  def __init__ (self) :  
+    super().__init__(self)
+      self.segment = '10.100.50.0.24')
+      
+ class NetworkServiceMgmt(NetworkService):
+  def __init__ (self) :  
+    super().__init__(self)
+      self.segment = '10.200.50.0.24')
+  
+ class NetworkServiceDeployer:
+  def deploy_service (self, service) :  
+    Infrastructure.deploy(service.config, '10.10.10.10/24')
+    
+In this case, you add a segment parameter that converts the if clause from the previous example to an extended class parameter. 
+
+Note the super() call. This is a function call that has access to the original nonextended class, NetworkService, its parameters, and methods.
+By using it, you can initialize the original class and then append extra parameters to each extended class.
