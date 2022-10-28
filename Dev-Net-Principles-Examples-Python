@@ -1,1 +1,55 @@
 Design for maintainability - Starting
+
+SOLID is an acronym for five software design principles: 
+
+1. Single responsibility principle: One class should have only a single responsibility. 
+    Know when to start and build a new class. Have good class scope
+2. Open-closed principle: Components (classes, methods, etc.) should be open for extension but closed for modification. 
+3. Liskov's substitution principle: Derived types must be completely substitutable for their base types. 
+4. Interface segregation principle: Clients should not be forced to depend upon the interfaces they do not use. 
+5. Dependency inversion principle: Program to an interface, not to an implementation. 
+
+1. Bad Code
+class NetworkService : 
+  def __init__(self, name, config):
+      self.name = name
+      self.config = config 
+  
+  def set_name (self, name) : 
+      self.name = name
+  
+  def set_config (self, config) : 
+      self. config = config 
+  def deploy_service (self) :  
+    Infrastructure.deploy(self.name, self.config) 
+    
+1. Good Code
+
+class NetworkService : 
+  def __init__(self, name, config):
+      self.name = name
+      self.config = config 
+  
+  def set_name (self, name) : 
+      self.name = name
+  
+  def set_config (self, config) : 
+      self. config = config 
+class NetworkServiceDeployer:
+  def deploy_service (self) :  
+    Infrastructure.deploy(self.name, self.config) 
+    
+The Facade pattern allows you to interface with the second class but does not utilize within its code:
+
+class NetworkService : 
+  def __init__ (self, name, config) : 
+     self.name = name 
+     self.config = config
+     self.deployer = NetworkServiceDeployer()  # Facade
+
+  def set_name(self, name) : 
+    self.name = name 
+  def set_config(self, config) :  
+    self.config = config 
+  def deploy_service(self) : 
+    self.deployer.deploy_service(self.service) 
