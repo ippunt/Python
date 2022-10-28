@@ -92,3 +92,77 @@ In this case, you add a segment parameter that converts the if clause from the p
 
 Note the super() call. This is a function call that has access to the original nonextended class, NetworkService, its parameters, and methods.
 By using it, you can initialize the original class and then append extra parameters to each extended class.
+
+3. Bade Code
+# Superclass 
+class NetworkService : 
+  def get_config(self) : 
+    return self.config 
+# Subclass in violation of LSP # Note the network ID and return non would cause the violation
+class NetworkServiceUser (NetworkService) : 
+  def get_config(self, network id): 
+    config = DB.get_service(network_id) 
+    print (config) 
+    return None 
+
+3. Good Code
+To be Continued
+Liskov's substitution principle requires subtypes to be substitutable for their supertypes. The aim is to ensure that a subtype can assume the place of its supertype without causing any errors or issues in the application. 
+
+In practical terms, a child class should never change the characteristics, such as arguments or return types, of its parent class.  
+
+4.  Bade Code
+Class NetworkSvcUser(NetworkSvc):
+  def get_user_config(self):
+    return DB.get_UserSvc(self)
+  def get_infra_config(self):
+    raise NotImplementedError
+ Class NetworkSvcInfra(NetworkSvc):
+   def get_user_config(self):
+     raise NotImplementedError
+   def get_infra_config(self):
+     return DB.get_infra_svc(self)
+
+4. Good Code
+The interface segregation principle states that interfaces should not depend on interfaces they do not use.
+It steers you toward creating smaller and more flexible interfaces. 
+class NetworkSvc:
+  def get_config(self):
+    return self.get_config()
+
+class NetworkSvcUser(NetworkSvc):
+  def get_config(self):
+    return DB.get_UserSvc(self)
+
+class NetworkSvcInfra(NetworkSvc):
+  def get_config(self):
+    return DB.get_infra_svc(self)
+
+5. Bad Code
+
+5. Good Code
+The dependency inversion principle focuses on avoiding tight coupling by separating low- and high-level classes. It encourages you to program to an interface and not to an implementation and states: 
+High-level modules should not depend on low-level modules. Both should depend on abstractions. 
+Abstractions should not depend on details. Details should depend on abstractions.  
+
+class NetworkService : 
+  def add_device (self, network service device) : 
+    network_service_device.add_device(self) 
+    network_service_device.set_service(self, self.service) 
+class NetworkServiceDevice : 
+  def add_device(self) : 
+    pass 
+  def set_service(self, service) : 
+    pass 
+class Router_IOS(NetworkServiceDevice) : 
+  def add_device(self) : 
+    Inventory.devices.router_ios.add(self) 
+  def set_service (self, service): 
+    self.service = service 
+class Switch_Virtual(NetworkServiceDevice) : 
+  def add_device(self): 
+    Datacenter.devices.switch.add(self) 
+  def set_service (self service). 
+    self.set_virtual_service(service) 
+
+Note how low-level classes implement add_device and set_service methods differently but use the same abstraction in high-level class. 
