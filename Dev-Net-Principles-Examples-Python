@@ -20,7 +20,7 @@ class NetworkService :
   
   def set_config (self, config) : 
       self. config = config 
-  def deploy_service (self) :  
+  def deploy_service (self) :  # The function of this is calling another class
     Infrastructure.deploy(self.name, self.config) 
     
 1. Good Code
@@ -35,7 +35,7 @@ class NetworkService :
   
   def set_config (self, config) : 
       self. config = config 
-class NetworkServiceDeployer:
+class NetworkServiceDeployer: # Just create another class
   def deploy_service (self) :  
     Infrastructure.deploy(self.name, self.config) 
     
@@ -65,7 +65,7 @@ class NetworkService :
 class NetworkServiceDeployer:
   def deploy_service (self, service) :  
     if service.type == 'user':
-      frastructure.deploy(service.config, '10.100.50.10/24')
+      frastructure.deploy(service.config, '10.100.50.0/24')
 
 2. Good Code
 
@@ -77,12 +77,12 @@ class NetworkService :
  class NetworkServiceUser(NetworkService:
   def __init__ (self) :  
     super().__init__(self)
-      self.segment = '10.100.50.0.24')
+      self.segment = '10.100.50.0.24'
       
  class NetworkServiceMgmt(NetworkService):
   def __init__ (self) :  
     super().__init__(self)
-      self.segment = '10.200.50.0.24')
+      self.segment = '10.200.50.0.24'
   
  class NetworkServiceDeployer:
   def deploy_service (self, service) :  
