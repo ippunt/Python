@@ -53,3 +53,16 @@ class NetworkService :
     self.config = config 
   def deploy_service(self) : 
     self.deployer.deploy_service(self.service) 
+
+
+2. Bade Code
+
+class NetworkService : 
+  def __init__(self, name, config):
+      self.type = type
+      self.config = config 
+      
+class NetworkServiceDeployer:
+  def deploy_service (self, service) :  
+    if service.type == 'user':
+      frastructure.deploy(service.config, '10.10.10.10/24')
