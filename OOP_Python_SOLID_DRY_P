@@ -1,4 +1,31 @@
-Design for maintainability - Starting
+Design for maintainability 
+0.1 DRY
+1-5 SOLID
+
+0.1 BAD:
+class calculator:
+    def test_add(self, x, y):
+        x = 10
+        y= 10
+        return x+y
+
+def test_subtract(self, x, y):
+        x = 10
+        y= 10
+        return x-y
+        
+0.1 Good code
+
+class calculator:
+    def __init__(self, x, y):
+        self.x = 10
+        self.y= 10
+    
+    def test_add(self):
+        return self.x + self.y
+
+    def test_subtract(self):
+        return self.x - self.y
 
 SOLID is an acronym for five software design principles: 
 
