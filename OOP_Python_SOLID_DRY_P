@@ -101,7 +101,7 @@ class NetworkService :
       self.type = type
       self.config = config 
       
- class NetworkServiceUser(NetworkService:
+ class NetworkServiceUser(NetworkService):
   def __init__ (self) :  
     super().__init__(self)
       self.segment = '10.100.50.0.24'
