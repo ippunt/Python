@@ -49,3 +49,4 @@ Hello
 1
 2
 >>> # Semicolons only work for small statements won't work in if statement. 
+    I guess usage like the BASH bomb made me think of this. 
