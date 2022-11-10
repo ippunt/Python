@@ -1,0 +1,39 @@
+Guarded Clauses Technique
+You do not want unmanageable nested Ifs
+
+1. Bade Code:
+
+void myfunct() {
+  if (wifi) {
+    if (login) {
+      if (admin) {
+        seeadminpanel();
+      } else {
+        debug print('Must be admin, attempted non admin')
+        }
+    } else {
+        debugPrint('Must login')
+        }
+  } else {
+      debugPrint('Must be connected to wifi')
+      }
+ }
+ 
+2. Good Code:
+
+void myfunct() {
+  if (!wifi) {
+    debugPrint('Must be connected to wifi')
+    return;
+  }
+  if (!login) {
+    debugPrint('Must login')
+    return;
+  } 
+  if (!admin) {
+   debug print('Must be admin, attempted non admin')
+   return;
+   }
+   seeAdminPanel();
+   }
+      
