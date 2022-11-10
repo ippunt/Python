@@ -52,4 +52,6 @@ Hello
     I guess usage like the BASH bomb made me think of this. 
     The Good code gives the idea that return kind of functions as a break in loop. That is what we may want. 
     Let's test in some python too see if we can get like behavior.
+    Remember formatting: >>> def func1(): print("Hello,World!")
+    
     
