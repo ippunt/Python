@@ -36,4 +36,6 @@ void myfunct() {
    }
    seeAdminPanel();
    }
-      
+EOF
+Note:We can use the return statement inside a function only. In Python, every function returns something. If there are no return statements, then it returns None. 
+If the return statement contains an expression, it's evaluated first and then the value is returned.
