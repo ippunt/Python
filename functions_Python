@@ -1,0 +1,8 @@
+1. Basic
+2. 
+
+
+1.
+>>> def func1(): print("Hello,World!")
+>>> func1()
+Hello,World!
