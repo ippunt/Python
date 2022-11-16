@@ -1,0 +1,19 @@
+1. It seems pty comes by default and can spawn bash terminal from python interpreter.
+You can call bash scripts from python but this will give you bash within the python terminal. 
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+  
+-c command | arguments
+
+Comes with Python as I have not installed pty
+
+jdarling@ubuntu:~$ python3
+Python 3.8.10 (default, Jun 22 2022, 20:18:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pty
+>>> pty.spawn("/bin/bash")
+jdarling@ubuntu:~$ exit
+exit
+0
+>>> 
