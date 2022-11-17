@@ -3,7 +3,8 @@
 
 
 
-1.
+1. Lesson: If, elif with no else. 
+    Could this be done without if else statements?
 Given an integer, , perform the following conditional actions:
 
 If  is odd, print Weird
@@ -33,3 +34,13 @@ elif n%2==0 and n > 6 and n <21:
     print("Weird")
 elif  n%2==0 and n>20:
     print("Not Weird")
+
+From hackerrank comments not my original work but fun to evalute and learn:
+n = int(input().strip())
+check = {True: "Not Weird", False: "Weird"}
+
+print(check[
+        n%2==0 and (
+            n in range(2,6) or 
+            n > 20)
+    ])
