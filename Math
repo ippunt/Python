@@ -1,4 +1,5 @@
 1. Testing numbers and printing output dependant on odd,even, number range constraints. 
+2. Division    divider operator, float division and modulus division.
 
 
 
@@ -44,3 +45,23 @@ print(check[
             n in range(2,6) or 
             n > 20)
     ])
+
+2)
+// integer division, / float division,  % modulus remainder
+
+>>> 3/10
+0.3
+>>> 10/3
+3.3333333333333335
+>>> 3//10
+0
+>>> 10//3
+3
+>>> 3%10
+3
+>>> 10%3  # This is usually desired affect gather the remainder. That is what modulus does. 
+1
+>>> 
+>>> 3%100
+3
+
