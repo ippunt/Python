@@ -1,0 +1,33 @@
+1. Representation of the basics
+2. Understand the whole name thing
+
+1.
+File in use:
+jdarling@ubuntu:~$ cat python1.py 
+__name__="Library_Module1"
+def module1():
+
+    if __name__ == '__main__':
+        print("Executed when invoked directly")
+        print(__name__)
+    else:
+        print("Executed when imported")
+        print(__name__)
+
+EOF
+
+Bad:
+>>> import python1; # Bad your module will not be available
+>>> import python1.py
+
+Good:
+>>> from python1 import module1; # Ensure we only have this single module
+>>> from python1 import *;       # Call all modules in this file
+
+2. 
+>>> print(__name__)
+__main__
+# You do not have to create the __name__ variable. When you open python name is main by default unless decalred like in variable
+>>>module1()
+Executed when imported
+Library_Module1
