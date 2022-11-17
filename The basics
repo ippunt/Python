@@ -1,0 +1,6 @@
+1. Use the: if __name__ == '__main__':
+
+
+
+1.
+  This will ensure you are not running a library. 
