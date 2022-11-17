@@ -1,5 +1,7 @@
-1. Testing numbers and printing output dependant on odd,even, number range constraints. 
+1. Testing     numbers and printing output dependant on odd,even, number range constraints. 
 2. Division    divider operator, float division and modulus division.
+3. Matrices    Linear algebra with infinite solutions is a scenario where you use a matrices
+                https://news.mit.edu/2013/explained-matrices-1206
 
 
 
@@ -64,4 +66,8 @@ print(check[
 >>> 
 >>> 3%100
 3
+
+3.
+
+
 
