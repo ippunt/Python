@@ -1,5 +1,6 @@
 1. Representation of the basics
 2. Understand the whole name thing
+        The misunderstanding you do not need to declare name it is file name. 
 
 1.
 File in use:
@@ -31,3 +32,21 @@ __main__
 >>>module1()
 Executed when imported
 Library_Module1
+
+The midunderstanding:
+jdarling@ubuntu:~$ cat python1.py 
+#__name__="Library_Module1"
+def module1():
+
+    if __name__ == '__main__':
+        print("Executed when invoked directly")
+        print(__name__)
+    else:
+        print("Executed when imported")
+        print(__name__)
+python3;
+>>> from python1 import *
+>>> module1()
+Executed when imported
+python1     # Perfect the name is the file name. Good practice to call the application file that runs all code as main.py
+
