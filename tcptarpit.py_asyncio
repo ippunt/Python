@@ -16,3 +16,11 @@ async def handler(_reader, writer):
        await server.serve_forever()
                  
  asyncio.run(main())
+
+
+#Now how could we get all ports on this host to forward to 2222 asyncio
+# iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 1:21 -j REDIRECT --to-port 2222
+# iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 23:79 -j REDIRECT --to-port 2222
+# iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 81:442 -j REDIRECT --to-port 2222
+# iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 444:2221 -j REDIRECT --to-port 2222
+# iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 2223:65535 -j REDIRECT --to-port 2222
