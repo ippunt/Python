@@ -1,0 +1,1 @@
+STRIP: a = "aabbccddccbbaa"; b = strip.a("cba ");  print(a); output: dd;   Strip needs to be able to strip app charachters  ("bc ") Would fail needs a to iteratre through edge. 
