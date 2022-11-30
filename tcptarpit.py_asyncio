@@ -2,21 +2,20 @@ import asyncio
 import random
 
 async def handler(_reader, writer):
-   try:
-      white True:
-        await asyncio.sleep(10)
-        writer.write(b'%x\r\n % random.randint(0, 2**32))
-        await writer.drain()
-   except ConnectionReserError:
+    try:
+        while True:
+            await asyncio.sleep(10)
+            writer.write(b'%x\r\n' % random.randint(0, 2**32))
+            await writer.drain()
+    except ConnectionResetError:
         pass
-           
- async def main():
-   server = await asyncio.start_server(handler, '0.0.0.0', 2222) # Was told 0.0.0.0 means every interface on port 2222. 
-   async with server:
-       await server.serve_forever()
-                 
- asyncio.run(main())
 
+async def main():
+    server = await asyncio.start_server(handler, '0.0.0.0', 2222)
+    async with server:
+        await server.serve_forever()
+
+asyncio.run(main())
 
 #Now how could we get all ports on this host to forward to 2222 asyncio
 # iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 1:21 -j REDIRECT --to-port 2222
