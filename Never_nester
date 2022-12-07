@@ -1,0 +1,4 @@
+When you nest multiple layers it feels like you need to keep this logic in your brain in order to read the code and go deeper. Instead of if this and that yadayada, attempt
+to initially declare the dependancies if not brake. So, as you get through dependancies you can move on without them in your head. Also, if nested som necesasry logic you
+may just want to write that logic into a function. Then calling the function allows you to display logic without feeling like your brain has to hold it to understand the code.
+
