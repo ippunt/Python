@@ -1,8 +1,14 @@
 1. Basic
-2. 
+2. Function to demonstrate return, return only works from within function
 
 
 1.
 >>> def func1(): print("Hello,World!")
 >>> func1()
 Hello,World!
+
+2.
+def helloworld():
+  return "Hello, World!"
+print(helloworld())
+Hello, World!
