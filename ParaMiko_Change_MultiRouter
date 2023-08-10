@@ -1,0 +1,52 @@
+import paramiko
+import time
+
+# List of router details
+router_list = [
+    {
+        'router_ip': 'router1_ip',
+        'router_username': 'router1_username',
+        'router_password': 'router1_password'
+    },
+    {
+        'router_ip': 'router2_ip',
+        'router_username': 'router2_username',
+        'router_password': 'router2_password'
+    },
+    # Add more routers as needed
+]
+
+# Command to change
+command_to_change = 'interface GigabitEthernet0/1'
+new_command = 'description New Description'
+
+for router_info in router_list:
+    router_ip = router_info['router_ip']
+    router_username = router_info['router_username']
+    router_password = router_info['router_password']
+
+    # Establish SSH connection
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(router_ip, username=router_username, password=router_password)
+
+    # Send command to the router
+    stdin, stdout, stderr = ssh.exec_command(command_to_change)
+    output = stdout.read().decode('utf-8')
+
+    # Modify the command
+    modified_command = f"{command_to_change}\n{new_command}"
+
+    # Configure the modified command
+    stdin, stdout, stderr = ssh.exec_command('configure terminal')
+    stdin.write(modified_command + '\n')
+    stdin.flush()
+    time.sleep(1)
+
+    # Exit configuration mode
+    stdin, stdout, stderr = ssh.exec_command('end')
+
+    # Close the SSH connection
+    ssh.close()
+
+    print(f"Command changed successfully on {router_ip}!")
