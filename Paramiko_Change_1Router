@@ -1,0 +1,37 @@
+import paramiko
+import time
+
+# Router SSH details
+router_ip = 'your_router_ip'
+router_username = 'your_username'
+router_password = 'your_password'
+
+# Command to change
+command_to_change = 'interface GigabitEthernet0/1'
+new_command = 'description New Description'
+
+# Establish SSH connection
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect(router_ip, username=router_username, password=router_password)
+
+# Send command to the router
+stdin, stdout, stderr = ssh.exec_command(command_to_change)
+output = stdout.read().decode('utf-8')
+
+# Modify the command
+modified_command = f"{command_to_change}\n{new_command}"
+
+# Configure the modified command
+stdin, stdout, stderr = ssh.exec_command('configure terminal')
+stdin.write(modified_command + '\n')
+stdin.flush()
+time.sleep(1)
+
+# Exit configuration mode
+stdin, stdout, stderr = ssh.exec_command('end')
+
+# Close the SSH connection
+ssh.close()
+
+print("Command changed successfully!")
